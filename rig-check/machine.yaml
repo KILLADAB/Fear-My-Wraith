@@ -1,0 +1,58 @@
+schema: 1
+
+# Acer Predator Helios Neo 16S AI (PHN16S-71-98RF), HDMI only, to a
+# Samsung Odyssey G93SD. That panel's maximum is 5120x1440 at 240 Hz.
+# The live HDMI link may run slower. The FPS cap follows the refresh
+# Windows reports. The laptop panel is not a target.
+
+name: Helios Neo 16S + Odyssey G93SD
+
+laptop:
+  product: Acer Predator Helios Neo 16S AI
+  sku: PHN16S-71-98RF
+  gpu: NVIDIA GeForce RTX 5070 Ti
+  internal_panel:
+    resolution: 2560x1600
+
+driver:
+  expected: "616.92"
+
+display:
+  match_names:
+    - G93SD
+    - Odyssey
+    - LS49DG93
+  connection: HDMI
+  preferred_resolution: 5120x1440
+  fps_cap: match_display_hz
+  panel_max_hz: 240
+
+gsync: "Off"
+
+hdr: Leave unchanged
+
+never_touch:
+  - BIOS
+  - undervolt
+  - PredatorSense
+  - fan curves
+  - NVIDIA driver install or rollback
+  - Windows display mode changes
+  - HDR toggles
+  - NVIDIA driver profile database
+
+predator_sense: Set the mode by hand before you play. This tool does not launch PredatorSense or recommend a mode.
+
+nvidia_checklist:
+  - label: Vertical sync
+    value: Application controlled
+  - label: Global FPS cap
+    value: "Off"
+  - label: DSR
+    value: "Off"
+  - label: Image scaling
+    value: "Off"
+  - label: Power management
+    value: Driver default
+  - label: Driver profile database
+    value: Do not edit
