@@ -1,0 +1,135 @@
+schema: 1
+
+# Phase 1 prints these values. It does not read them back from game files.
+# Every apply tag stays manual. fps_cap match_display_hz means: type the
+# refresh that status measured on the Odyssey.
+
+shared:
+  - id: resolution
+    label: Resolution
+    value: 5120x1440
+    apply: manual
+    note: On the Odyssey, not the laptop panel.
+  - id: window
+    label: Window mode
+    value: Borderless
+    apply: manual
+    note: Borderless avoids an HDMI modeswitch on Alt-Tab.
+  - id: fps_cap
+    label: FPS cap
+    value: match_display_hz
+    apply: manual
+    note: Type the refresh status measured. VSync stays off, so the cap limits GPU work.
+  - id: vsync
+    label: VSync
+    value: "Off"
+    apply: manual
+  - id: motion_blur
+    label: Motion blur
+    value: "Off"
+    apply: manual
+  - id: frame_generation
+    label: Frame generation
+    value: "Off"
+    apply: manual
+    note: Left off on all five games.
+  - id: clarity_extras
+    label: Clarity extras
+    value: "Off (film grain, depth of field, chromatic aberration)"
+    apply: manual
+
+games:
+  - id: iracing
+    name: iRacing
+    config:
+      root: documents
+      path: iRacing
+      verified: true
+      purpose: presence
+    settings:
+      - id: rendering
+        label: Rendering
+        value: "Native resolution, single 32:9 screen"
+        apply: manual
+      - id: dlss
+        label: DLSS
+        value: "Off unless you miss the cap. Then Quality only."
+        apply: manual
+      - id: anisotropic
+        label: Anisotropic filtering
+        value: 16x
+        apply: manual
+      - id: fov
+        label: Field of view
+        value: unset
+        apply: manual
+        note: Record eye-to-screen distance before setting this. The 49-inch 32:9 panel is about 119 cm wide.
+
+  - id: acc
+    name: Assetto Corsa Competizione
+    config:
+      root: documents
+      path: Assetto Corsa Competizione/Config
+      verified: true
+      purpose: presence
+    settings:
+      - id: resolution_scale
+        label: Resolution scale
+        value: 100%
+        apply: manual
+      - id: antialiasing
+        label: Anti-aliasing
+        value: Temporal
+        apply: manual
+      - id: dlss
+        label: DLSS
+        value: "Off. Quality is the fallback if you miss the cap. ACC DLSS ghosts."
+        apply: manual
+      - id: mirrors
+        label: Mirrors
+        value: High
+        apply: manual
+      - id: layout
+        label: Screen layout
+        value: "Single 32:9 screen"
+        apply: manual
+
+  - id: ace
+    name: Assetto Corsa Evo
+    settings:
+      - id: dlss
+        label: DLSS
+        value: Quality
+        apply: manual
+      - id: dlss_files
+        label: DLSS files
+        value: Leave the game files alone
+        apply: manual
+
+  - id: fh6
+    name: Forza Horizon 6
+    settings:
+      - id: dlss
+        label: DLSS
+        value: Quality
+        apply: manual
+      - id: ray_tracing
+        label: Ray tracing
+        value: "Off until a session shows spare frames"
+        apply: manual
+
+  - id: bf6
+    name: Battlefield 6
+    settings:
+      - id: dlss
+        label: DLSS
+        value: Quality
+        apply: manual
+      - id: future_frame
+        label: Future frame rendering
+        value: "Off"
+        apply: manual
+      - id: reflex
+        label: NVIDIA Reflex
+        value: "On"
+        apply: manual
